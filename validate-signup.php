@@ -45,6 +45,6 @@ require_once('user.php');
   }
 
   $user->create_user($username, $password1);
-  // Should redirect somewhere, index.php?
+  header ('location: /login.php');
 
 ?>
