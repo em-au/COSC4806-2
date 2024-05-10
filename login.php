@@ -1,12 +1,11 @@
 <?php
   session_start();
-  /*
-  // Check if user is authenticated (use session variable authenticated)
+
+  // Check if user is authenticated
   // If yes, redirect to index.php
-  if (isset($_SESSION['authenticated']) == 1) {
-    header ('location: /index.php');
+  if (isset($_SESSION['authenticated']) && $_SESSION['authenticated'] == 1) {
+    header ('location: /');
   }
-  */
 ?>
 
 <!DOCTYPE html>
@@ -44,7 +43,9 @@
       else if (isset($_SESSION['password_incorrect']) && $_SESSION['password_incorrect'] == 1) {
         echo "Password is incorrect";
       }
-    session_destroy();
+    //session_destroy();
+    unset($_SESSION['username_exists']);
+    unset($_SESSION['password_incorrect']);
     ?>
     <p><a href="/signup.php">Click here to sign up</p>
   </footer>

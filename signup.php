@@ -1,12 +1,12 @@
 <?php
   session_start();
-  /*
-  // Check if user is authenticated (use session variable authenticated)
+
+  // Check if user is authenticated
   // If yes, redirect to index.php
-  if (isset($_SESSION['authenticated']) == 1) {
-    header ('location: /index.php');
-  }
-  */
+  if (isset($_SESSION['authenticated']) && $_SESSION['authenticated'] == 1) {
+    header ('location: /');
+}
+
 ?>
 
 <!DOCTYPE html>
@@ -35,12 +35,6 @@
       <br><br>
     </form>
   </body>
-  
-  <!--
-  <footer>
-    <p><a href="/signup.php">Sign up</p>
-  </footer>
-  -->
 
   <footer>
     <?php
@@ -55,7 +49,10 @@
         echo "Password must be at least 8 characters";
       }
     
-    session_destroy();
+    //session_destroy();
+    unset($_SESSION['username_exists']);
+    unset($_SESSION['password_mismatch']);
+    unset($_SESSION['password_too_short']);
     ?>
     <p><a href="/login">Click here to login</p>
   </footer>

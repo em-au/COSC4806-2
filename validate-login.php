@@ -26,12 +26,14 @@ require_once('user.php');
     //echo "username doesn't exist";
     $_SESSION['username_exists'] = 0;
     header ('location: /login.php');
+    die();
   }
 
   // Check if password is correct
   $hashed_password = hash( 'sha256', $password);
   $valid_password = $user->get_password($username);
   if ($hashed_password == $valid_password) {
+    $_SESSION['authenticated'] = 1;
     header ('location: /'); // Redirect to index (should change this to welcome page and logout function)
   }
   else {
