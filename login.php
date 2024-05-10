@@ -34,7 +34,7 @@
 
   <footer>
     <?php
-    //Display messages
+    // Display messages
       if (isset($_SESSION['account_created']) && $_SESSION['account_created'] == 1) {
         echo "Account successfully created. Please login";
       }
@@ -46,7 +46,7 @@
       }
     session_destroy();
     ?>
-    <p><a href="/signup.php">Sign up</p>
+    <p><a href="/signup.php">Click here to sign up</p>
   </footer>
 </html>
 

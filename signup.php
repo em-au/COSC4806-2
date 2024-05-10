@@ -57,6 +57,7 @@
     
     session_destroy();
     ?>
+    <p><a href="/login">Click here to login</p>
   </footer>
 </html>
 
