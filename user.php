@@ -24,9 +24,9 @@ Class User {
     }
   }
   
-  public function create_user($username, $password) {
+  public function create_user($username) {
     $db = db_connect();
-    $statement = $db->prepare("INSERT into users...");
+    $statement = $db->prepare("INSERT into users (username) VALUES ('$username')");
     $statement->execute();
     $rows = $statement->fetchAll(PDO::FETCH_ASSOC);
     return $rows; // Can return rows to make sure it's there

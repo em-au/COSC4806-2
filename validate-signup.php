@@ -36,11 +36,14 @@ require_once('user.php');
 
   if ($password1 != $password2) {
     $_SESSION['password_mismatch'] = 1;
+    header ('location: /signup.php');
   }
 
-  else if (strlen($password1) < 8) {
+  if (strlen($password1) < 8) {
     $_SESSION['password_too_short'] = 1;
+    header ('location: /signup.php');
   }
 
-  header ('location: /signup.php');
+  $user->create_user($username, $password1);
+
 ?>
