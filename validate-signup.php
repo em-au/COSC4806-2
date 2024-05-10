@@ -44,6 +44,7 @@ require_once('user.php');
     
   else {
     $user->create_user($username, $password1);
+    $_SESSION['account_created'] = 1;
     header ('location: /login.php');
   }
 ?>

@@ -33,10 +33,12 @@
   </body>
 
   <footer>
-    <?php // PROBLEM WITH THE SESSION VAR/ERROR MESSAGES LASTING
-    // UNDEFINED ARRAY KEY PASSWORD_INCORRECT
-    //Display error messages
-      if (isset($_SESSION['username_exists']) && $_SESSION['username_exists'] == 0) {
+    <?php
+    //Display messages
+      if (isset($_SESSION['account_created']) && $_SESSION['account_created'] == 1) {
+        echo "Account successfully created. Please login";
+      }
+      else if (isset($_SESSION['username_exists']) && $_SESSION['username_exists'] == 0) {
         echo "Username does not exist";
       }
       else if (isset($_SESSION['password_incorrect']) && $_SESSION['password_incorrect'] == 1) {
