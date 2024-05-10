@@ -11,12 +11,15 @@ Class User {
     return $rows;
   }
 
-  public function get_user($username) {
+  public function usernameExists($username) {
     $db = db_connect();
     $statement = $db->prepare("SELECT username FROM users WHERE username = :username");
     $statement->execute(); 
     $user = $statement->fetch(PDO::FETCH_ASSOC);
-    return $user;
+    if (empty($user)
+        return false;
+    else 
+      return true;
   }
   
 
