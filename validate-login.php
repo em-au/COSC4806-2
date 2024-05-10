@@ -4,7 +4,7 @@ require_once('user.php');
 
   $username = $_REQUEST['username'];
   $_SESSION['username'] = $username; // Save username in a session variable
-  // $password = $_REQUEST['password'];
+  $password = $_REQUEST['password'];
 
   // if ($valid_username == $username && $valid_password == $password) {
   //   $_SESSION['authenticated'] = 1;
@@ -20,6 +20,7 @@ require_once('user.php');
   //   header ('location: /login.php');
   // }
 
+  // Check is username exists in db
   $user = new User();
   if (!$user->usernameExists($username)) {
     //echo "username doesn't exist";
@@ -28,4 +29,14 @@ require_once('user.php');
 
     header ('location: /login.php');
   }
+
+  // Check if password is correct
+  if (!password_verify($password, $user->get_password($username))) {
+    //$hashed = $user->get_password($username);
+    //echo "correct password:" . $hashed;
+    $_SESSION['password_incorrect'] = 1;
+    header ('location: /login.php');
+  }
+
+  header ('location: /'); // Redirect to index (should change this to welcome page)
 ?>

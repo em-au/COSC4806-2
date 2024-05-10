@@ -32,6 +32,14 @@ Class User {
     // $rows = $statement->fetchAll(PDO::FETCH_ASSOC);
     // return $rows; // Can return rows to make sure it's there
   }
+
+  public function get_password($username) {
+    $db = db_connect();
+    $statement = $db->prepare("SELECT password FROM users WHERE username = '$username'");
+    $statement->execute(); 
+    $row = $statement->fetch(PDO::FETCH_ASSOC);
+    return $row['password'];
+  }
 }
 
 

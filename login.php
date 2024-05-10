@@ -35,8 +35,11 @@
   <footer>
     <?php
       // Display error messages
-      if ($_SESSION['username_exists'] == 0) {
-        echo "Username does not exist";
+      // if ($_SESSION['username_exists'] == 0) {
+      //   echo "Username does not exist";
+      // }
+      if ($_SESSION['password_incorrect'] == 1) {
+        echo "Password is incorrect";
       }
     ?>
     <!--<p><a href="/signup.php">Sign up</p> -->
