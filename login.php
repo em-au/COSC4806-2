@@ -18,7 +18,7 @@
 
     <h1>Login Form</h1>
 
-    <form action="/validate.php" method="post">
+    <form action="/validate-login.php" method="post">
       <label for="username">Username:</label>
       <br>
       <input type="text" id="username" name="username">
