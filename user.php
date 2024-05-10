@@ -15,11 +15,11 @@ Class User {
     $db = db_connect();
     $statement = $db->prepare("SELECT username FROM users WHERE username = :username");
     $statement->execute(); 
-    $user = $statement->fetch(PDO::FETCH_ASSOC);
-    if (empty($user)
-        return false;
+    $row = $statement->fetch(PDO::FETCH_ASSOC);
+    if (isset($row) && !empty($row) 
+        return true;
     else 
-      return true;
+      return false;
   }
   
 
