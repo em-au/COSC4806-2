@@ -24,27 +24,26 @@ require_once('user.php');
   }
   */
   $username = $_REQUEST['username'];
+  $password1 = $_REQUEST['password1'];
+  $password2 = $_REQUEST['password2'];
   $user = new User();
   if ($user->usernameExists($username)) {
     $_SESSION['username_exists'] = 1;
      header ('location: /signup.php');
   }
 
-
-  $password1 = $_REQUEST['password1'];
-  $password2 = $_REQUEST['password2'];
-
-  if ($password1 != $password2) {
+  else if ($password1 != $password2) {
     $_SESSION['password_mismatch'] = 1;
     header ('location: /signup.php');
   }
 
-  if (strlen($password1) < 8) {
+  else if (strlen($password1) < 8) {
     $_SESSION['password_too_short'] = 1;
     header ('location: /signup.php');
   }
-
-  $user->create_user($username, $password1);
-  header ('location: /login.php');
-
+    
+  else {
+    $user->create_user($username, $password1);
+    header ('location: /login.php');
+  }
 ?>
