@@ -18,18 +18,18 @@
 
     <h1>Sign Up Form</h1>
 
-    <form action="/validate.php" method="post">
+    <form action="/validate-signup.php" method="post">
       <label for="username">Username:</label>
       <br>
       <input type="text" id="username" name="username">
       <br>
       <label for="password">Password:</label>
       <br>
-      <input type="password" id="password" name="password">
+      <input type="password" id="password1" name="password1">
       <br>
       <label for="password">Confirm Password:</label>
       <br>
-      <input type="password" id="password" name="password">
+      <input type="password" id="password2" name="password2">
       <br><br>
       <input type="submit" value="Submit">
       <br><br>
@@ -41,6 +41,23 @@
     <p><a href="/signup.php">Sign up</p>
   </footer>
   -->
+
+  <footer>
+    <?php
+      // Display error messages
+      if (isset($_SESSION['password_mismatch']) == 1) {
+        echo "Passwords do not match";
+      }
+      else if (isset($_SESSION['password_too_short']) == 1) {
+        echo "Password must be at least 8 characters";
+      }
+
+    if (isset($_SESSION['test']) == 1) {
+      echo "test";
+    }
+    session_destroy();
+    ?>
+  </footer>
 </html>
 
 
