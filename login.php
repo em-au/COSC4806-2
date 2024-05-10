@@ -33,7 +33,13 @@
   </body>
 
   <footer>
-    <p><a href="/signup.php">Sign up</p>
+    <?php
+      // Display error messages
+      if ($_SESSION['username_exists'] == 0) {
+        echo "Username does not exist";
+      }
+    ?>
+    <!--<p><a href="/signup.php">Sign up</p> -->
   </footer>
 </html>
 
