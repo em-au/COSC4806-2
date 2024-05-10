@@ -45,7 +45,10 @@
   <footer>
     <?php
       // Display error messages
-      if (isset($_SESSION['password_mismatch']) == 1) {
+      if (isset($_SESSION['username_exists']) == 1) {
+        echo "Username taken";
+      }
+      else if (isset($_SESSION['password_mismatch']) == 1) {
         echo "Passwords do not match";
       }
       else if (isset($_SESSION['password_too_short']) == 1) {

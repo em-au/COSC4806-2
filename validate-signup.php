@@ -1,4 +1,5 @@
 <?php
+require_once('user.php');
   // Username cannot exist in db already
   // Passwords must match
   // Password must meet security standard (eg 8 characters)
@@ -23,6 +24,11 @@
   }
   */
   $username = $_REQUEST['username'];
+  $user = new User();
+  if ($user->usernameExists($username)) {
+    $_SESSION['username_exists'] = 1;
+     header ('location: /signup.php');
+  }
 
 
   $password1 = $_REQUEST['password1'];

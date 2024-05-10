@@ -13,16 +13,17 @@ Class User {
 
   public function usernameExists($username) {
     $db = db_connect();
-    $statement = $db->prepare("SELECT username FROM users WHERE username = :username");
+    $statement = $db->prepare("SELECT username FROM users WHERE username = '$username'");
     $statement->execute(); 
     $row = $statement->fetch(PDO::FETCH_ASSOC);
-    if (isset($row) && !empty($row) 
+    if (isset($row) && !empty($row)) {
         return true;
-    else 
+    }
+    else {
       return false;
+    }
   }
   
-
   public function create_user($username, $password) {
     $db = db_connect();
     $statement = $db->prepare("INSERT into users...");
