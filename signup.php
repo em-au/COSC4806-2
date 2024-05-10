@@ -25,11 +25,11 @@
       <br>
       <label for="password">Password:</label>
       <br>
-      <input type="password" id="password1" name="password1">
+      <input type="password" id="password" name="password1">
       <br>
       <label for="password">Confirm Password:</label>
       <br>
-      <input type="password" id="password2" name="password2">
+      <input type="password" id="password" name="password2">
       <br><br>
       <input type="submit" value="Submit">
       <br><br>
@@ -51,10 +51,7 @@
       else if (isset($_SESSION['password_too_short']) == 1) {
         echo "Password must be at least 8 characters";
       }
-
-    if (isset($_SESSION['test']) == 1) {
-      echo "test";
-    }
+    
     session_destroy();
     ?>
   </footer>

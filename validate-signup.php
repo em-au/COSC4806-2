@@ -22,7 +22,9 @@
     header ('location: /login.php');
   }
   */
-  
+  $username = $_REQUEST['username'];
+
+
   $password1 = $_REQUEST['password1'];
   $password2 = $_REQUEST['password2'];
 

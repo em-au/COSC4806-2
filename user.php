@@ -11,10 +11,19 @@ Class User {
     return $rows;
   }
 
+  public function get_user($username) {
+    $db = db_connect();
+    $statement = $db->prepare("SELECT username FROM users WHERE username = :username");
+    $statement->execute(); 
+    $user = $statement->fetch(PDO::FETCH_ASSOC);
+    return $user;
+  }
+  
+
   public function create_user($username, $password) {
     $db = db_connect();
     $statement = $db->prepare("INSERT into users...");
-    $statement->execute(); // Executes on filess.io end
+    $statement->execute();
     $rows = $statement->fetchAll(PDO::FETCH_ASSOC);
     return $rows; // Can return rows to make sure it's there
   }
