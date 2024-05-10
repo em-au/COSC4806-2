@@ -26,7 +26,7 @@ Class User {
   
   public function create_user($username, $password) {
     $db = db_connect();
-    $hashed_password = password_hash($password, PASSWORD_DEFAULT);
+    $hashed_password = hash('sha256', $password);
     $statement = $db->prepare("INSERT into users (username, password) VALUES ('$username','$hashed_password')");
     $statement->execute();
     // $rows = $statement->fetchAll(PDO::FETCH_ASSOC);

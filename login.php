@@ -33,7 +33,8 @@
   </body>
 
   <footer>
-    <?php
+    <?php // PROBLEM WITH THE SESSION VAR/ERROR MESSAGES LASTING
+    // UNDEFINED ARRAY KEY PASSWORD_INCORRECT
       // Display error messages
       // if ($_SESSION['username_exists'] == 0) {
       //   echo "Username does not exist";
@@ -42,7 +43,7 @@
         echo "Password is incorrect";
       }
     ?>
-    <!--<p><a href="/signup.php">Sign up</p> -->
+    <p><a href="/signup.php">Sign up</p>
   </footer>
 </html>
 
