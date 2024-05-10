@@ -24,12 +24,13 @@ Class User {
     }
   }
   
-  public function create_user($username) {
+  public function create_user($username, $password) {
     $db = db_connect();
-    $statement = $db->prepare("INSERT into users (username) VALUES ('$username')");
+    $hashed_password = password_hash($password, PASSWORD_DEFAULT);
+    $statement = $db->prepare("INSERT into users (username, password) VALUES ('$username','$hashed_password')");
     $statement->execute();
-    $rows = $statement->fetchAll(PDO::FETCH_ASSOC);
-    return $rows; // Can return rows to make sure it's there
+    // $rows = $statement->fetchAll(PDO::FETCH_ASSOC);
+    // return $rows; // Can return rows to make sure it's there
   }
 }
 
