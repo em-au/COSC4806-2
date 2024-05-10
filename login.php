@@ -35,13 +35,14 @@
   <footer>
     <?php // PROBLEM WITH THE SESSION VAR/ERROR MESSAGES LASTING
     // UNDEFINED ARRAY KEY PASSWORD_INCORRECT
-      // Display error messages
-      // if ($_SESSION['username_exists'] == 0) {
-      //   echo "Username does not exist";
-      // }
-      if ($_SESSION['password_incorrect'] == 1) {
+    //Display error messages
+      if (isset($_SESSION['username_exists']) && $_SESSION['username_exists'] == 0) {
+        echo "Username does not exist";
+      }
+      else if (isset($_SESSION['password_incorrect']) && $_SESSION['password_incorrect'] == 1) {
         echo "Password is incorrect";
       }
+    session_destroy();
     ?>
     <p><a href="/signup.php">Sign up</p>
   </footer>

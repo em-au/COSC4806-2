@@ -20,17 +20,14 @@ require_once('user.php');
   //   header ('location: /login.php');
   // }
 
-  // Check is username exists in db
+  // Check if username exists in db
   $user = new User();
   if (!$user->usernameExists($username)) {
     //echo "username doesn't exist";
     $_SESSION['username_exists'] = 0;
-    $_SESSION['test'] = 0;
-
     header ('location: /login.php');
   }
 
-  // INSTRUCTIONS SAY TO HASH THE PASSWORD IN THE LOGIN FORM AND THEN COMPARE so no salt?
   // Check if password is correct
   $hashed_password = hash( 'sha256', $password);
   $valid_password = $user->get_password($username);
