@@ -32,21 +32,14 @@ require_once('user.php');
 
   // INSTRUCTIONS SAY TO HASH THE PASSWORD IN THE LOGIN FORM AND THEN COMPARE so no salt?
   // Check if password is correct
-  // if (!password_verify($password, $user->get_password($username))) {
-  //   //$hashed = $user->get_password($username);
-  //   //echo "correct password:" . $hashed;
-  //   $_SESSION['password_incorrect'] = 1;
-  //   header ('location: /login.php');
-  // }
-  $hashed_password = password_hash($password, PASSWORD_DEFAULT);
-  if ($hashed_password == $user->get_password($username)) {
-    echo "input password: " . $hashed_password;
-    echo "correct password: " . $user->get_password($username);
+  $hashed_password = hash( 'sha256', $password);
+  $valid_password = $user->get_password($username);
+  if ($hashed_password == $valid_password) {
+    header ('location: /'); // Redirect to index (should change this to welcome page and logout function)
   }
   else {
-    echo "password is incorrect";
+    $_SESSION['password_incorrect'] = 1;
+    header ('location: /login.php');
   }
-
-
-  //header ('location: /'); // Redirect to index (should change this to welcome page and logout function)
+   
 ?>
