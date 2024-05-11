@@ -40,7 +40,7 @@
     <?php
       // Display error messages
       if (isset($_SESSION['username_exists']) && $_SESSION['username_exists'] == 1) {
-        echo "Username taken";
+        echo "Username already taken";
       }
       else if (isset($_SESSION['password_mismatch']) && $_SESSION['password_mismatch'] == 1) {
         echo "Passwords do not match";
