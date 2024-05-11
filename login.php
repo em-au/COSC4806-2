@@ -43,7 +43,7 @@
       else if (isset($_SESSION['password_incorrect']) && $_SESSION['password_incorrect'] == 1) {
         echo "Password is incorrect";
       }
-    //session_destroy();
+    // Unset variables so error messages don't persist
     unset($_SESSION['username_exists']);
     unset($_SESSION['password_incorrect']);
     ?>

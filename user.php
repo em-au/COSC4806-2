@@ -29,8 +29,6 @@ Class User {
     $hashed_password = hash('sha256', $password);
     $statement = $db->prepare("INSERT into users (username, password) VALUES ('$username','$hashed_password')");
     $statement->execute();
-    // $rows = $statement->fetchAll(PDO::FETCH_ASSOC);
-    // return $rows; // Can return rows to make sure it's there
   }
 
   public function get_password($username) {

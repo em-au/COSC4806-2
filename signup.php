@@ -49,7 +49,7 @@
         echo "Password must be at least 8 characters";
       }
     
-    //session_destroy();
+    // Unset variables so error messages don't persist
     unset($_SESSION['username_exists']);
     unset($_SESSION['password_mismatch']);
     unset($_SESSION['password_too_short']);

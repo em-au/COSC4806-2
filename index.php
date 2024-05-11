@@ -5,7 +5,7 @@ session_start();
 
 // Check if user is authenticated
 // If not, redirect to login.php
-  if (isset($_SESSION['authenticated']) && ($_SESSION['authenticated']) != 1 || !isset($_SESSION['authenticated'])) {
+  if ((isset($_SESSION['authenticated']) && ($_SESSION['authenticated']) != 1) || !isset($_SESSION['authenticated'])) {
     header ('location: /login.php');
   }
 ?>
