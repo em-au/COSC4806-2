@@ -17,7 +17,7 @@ Class User {
     $statement->execute(); 
     $row = $statement->fetch(PDO::FETCH_ASSOC);
     if (isset($row) && !empty($row)) {
-        return true;
+      return true;
     }
     else {
       return false;

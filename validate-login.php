@@ -15,7 +15,7 @@ require_once('user.php');
   }
 
   // Check if password is correct
-  $hashed_password = hash( 'sha256', $password);
+  $hashed_password = hash('sha256', $password);
   $valid_password = $user->get_password($username);
   if ($hashed_password == $valid_password) {
     $_SESSION['authenticated'] = 1;
